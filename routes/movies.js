@@ -1,6 +1,13 @@
 const express = require('express');
 const MoviesService = require('../services/movies');
 
+
+const cacheResponse = require('../utils/cacheResponse');
+const {
+  FIVE_MINUTES_IN_SECONDS,
+  SIXTY_MINUTES_IN_SECONDS
+} = require('../utils/time');
+
 function moviesApi(app) {
   const router = express.Router();
   app.use('/api/movies', router);
